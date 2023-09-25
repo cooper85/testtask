@@ -1,0 +1,14 @@
+{
+  "name": "test/task",
+  "description": "Test Task Module",
+  "license": "proprietary",
+  "type": "magento2-module",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Test\\Task\\": ""
+    }
+  }
+}
