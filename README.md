@@ -1,5 +1,6 @@
 **Test Task Module**
 **Tested compatibility with Magento 2.4.5-p2**
+
 - Add a custom customer attribute “Hobby“ with possible options: “Yoga“, “Traveling“, “Hiking“. The attribute is not required.
 - Add a possibility to fetch / edit the attribute using GraphQL.
 - Admin must be able to edit the attribute in admin panel.
@@ -9,9 +10,11 @@
 NB! Notice that it must work correctly with all enabled Magento caches
 
 **Admin configuration could be found under**
+
 Customer / Account Information / Display Hobby Section
 
 **Frontend changes could be visible by**
+
 Customer Account Dashboard / Hobby List - hobby/manage/index
 For logged-in customers header welcome message should be displayed as Welcome %NAME%, (%HOBBY LIST%) !
 
@@ -21,12 +24,15 @@ For logged-in customers header welcome message should be displayed as Welcome %N
 
 1.Retrieve customer token
 request example:
+<pre>
 mutation {
     generateCustomerToken(email: "own_email@gmail.com", password: "secret_password") {
         token
     }
 }
+</pre>
 response example:
+<pre>
 {
     "data": {
         "generateCustomerToken": {
@@ -34,8 +40,9 @@ response example:
         }
     }
 }
-
+</pre>
 2. Retrieve customer email and hobbies using customer token for auth
+<pre>
 request example:
 {
    customer {
@@ -43,7 +50,9 @@ request example:
        hobby
    }
 }
+</pre>
 response example:
+<pre>
 {
    "data": {
    "customer": {
@@ -55,9 +64,10 @@ response example:
        }
    }
 }
-
+</pre>
 3. Update customer hobbies using customer token for auth
 request example:
+<pre>
 mutation {
     updateCustomer(
         input: {
@@ -73,7 +83,9 @@ mutation {
         }
     }
 }
+</pre>
 response example:
+<pre>
 {
    "data": {
       "updateCustomer": {
@@ -87,3 +99,4 @@ response example:
       }
    }
 }
+</pre>
