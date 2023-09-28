@@ -1,11 +1,14 @@
 <?php
 namespace Test\Task\Helper;
+
+use Magento\Framework\App\Helper\Context;
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Framework\DataObject;
+use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\ScopeInterface;
-class Config extends DataObject
+
+class Config extends AbstractHelper
 {
-    const HOBBY_SECTION_ENABLED = 'customer/account_information/display_hobby_section';
+    public const HOBBY_SECTION_ENABLED = 'customer/account_information/display_hobby_section';
 
     /**
      * @var ScopeConfigInterface
@@ -18,15 +21,15 @@ class Config extends DataObject
      * @param array $data
      */
     public function __construct(
-        ScopeConfigInterface $scopeConfig,
-        array $data = []
-    )
-    {
+        Context $context,
+        ScopeConfigInterface $scopeConfig
+    ) {
         $this->scopeConfig = $scopeConfig;
-        parent::__construct($data);
+        parent::__construct($context);
     }
 
     /**
+     * Returns if module is enabled per scope
      * @return mixed
      */
     public function isEnabled()

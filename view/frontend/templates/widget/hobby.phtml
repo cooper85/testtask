@@ -1,0 +1,39 @@
+<?php
+/** @var Test\Task\Block\Widget\Hobby $block */
+?>
+<div class="field hobby<?= $block->isRequired() ? ' required' : ''?>">
+    <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('hobby')) ?>">
+        <span><?= $block->escapeHtml($block->getStoreLabel('hobby')) ?></span>
+    </label>
+    <div class="control">
+        <?php $values = $block->getHobby() ? explode(',', $block->getHobby()->getValue()) : []; ?>
+        <select id="<?= $block->escapeHtmlAttr($block->getFieldId('hobby'))?>"
+            name="<?= $block->escapeHtmlAttr($block->getFieldName('hobby'))?>[]"
+            title="<?= $block->escapeHtmlAttr($block->getStoreLabel('hobby'))?>"
+            <?php if ($block->isRequired()):?> class="validate-select" data-validate="{required:true}"<?php endif;?>
+        multiple>
+            <option id="empty-hobby" <?= empty($values) ? ' selected="selected"' : ''?> value></option>
+            <?php $options = $block->getHobbyOptions(); ?>
+            <?php foreach ($options as $option):?>
+                <?php if ($option->getValue()):?>
+                    <option value="<?= $block->escapeHtmlAttr($option->getValue()) ?>"
+                        <?=in_array($option->getValue(), $values) ? ' selected="selected"' : '';?>>
+                        <?= $block->escapeHtml(__($option->getLabel())) ?>
+                    </option>
+                <?php endif;?>
+            <?php endforeach;?>
+        </select>
+    </div>
+</div>
+<script>
+    require([
+        'jquery',
+        'domReady!'
+    ], function($){
+        $('#empty-hobby').click(function() {
+            $('#<?=$block->escapeHtmlAttr($block->getFieldId('hobby'));?>')
+                .find('option:not(#empty-hobby)')
+                .prop('selected', false);
+        });
+    });
+</script>

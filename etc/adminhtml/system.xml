@@ -6,6 +6,7 @@
                 <field id="display_hobby_section" translate="label" type="select" sortOrder="999" showInDefault="1" showInWebsite="1">
                     <label>Display Hobby Section In Customer Account</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <can_be_empty>1</can_be_empty>
                 </field>
             </group>
         </section>

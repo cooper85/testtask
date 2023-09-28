@@ -5,16 +5,18 @@ use Magento\Eav\Model\Entity\Attribute\Source\AbstractSource;
 
 class Hobby extends AbstractSource
 {
-    const HOBBY_YOGA = 'yoga';
-    const HOBBY_TRAVELING = 'travelling';
-    const HOBBY_HIKING = 'hiking';
+    public const HOBBY_ATTRIBUTE = 'hobby';
+
+    public const HOBBY_YOGA = 'yoga';
+    public const HOBBY_TRAVELING = 'travelling';
+    public const HOBBY_HIKING = 'hiking';
 
     /**
      * Prepare display options.
      *
      * @return array
      */
-    protected function getAvailableOptions()
+    public function getAvailableOptions()
     {
         return [
             '' => '',

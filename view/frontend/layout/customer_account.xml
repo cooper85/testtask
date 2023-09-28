@@ -8,7 +8,7 @@
                     name="customer-account-navigation-hobby-section-link"
                     after="-" >
                 <arguments>
-                    <argument name="path" xsi:type="string">hobby</argument>
+                    <argument name="path" xsi:type="string">hobby/manage/index</argument>
                     <argument name="label" xsi:type="string" translate="true">Hobby List</argument>
                 </arguments>
             </block>

@@ -1,0 +1,10 @@
+type Customer {
+  hobby: [String!] @doc(description: "Customer Custom Attribute Hobbies")
+    @resolver(
+      class: "\\Test\\Task\\Model\\Resolver\\GetHobby"
+    )
+}
+
+input CustomerInput {
+  hobby: [String!] @doc(description: "Customer Custom Attribute Hobbies Value")
+}
