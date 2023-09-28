@@ -1,6 +1,7 @@
 {
   "name": "test/task",
   "description": "Test Task Module",
+  "version": "1.0.1",
   "license": "proprietary",
   "type": "magento2-module",
   "autoload": {
