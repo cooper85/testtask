@@ -8,7 +8,7 @@ use Magento\Customer\CustomerData\Customer as Customer;
 
 class HobbySection
 {
-    const HOBBY_SECTION_NAME = 'hobby';
+    public const HOBBY_SECTION_NAME = 'hobby';
 
     /**
      * @var ConfigHelper
